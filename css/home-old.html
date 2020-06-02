@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>True</title>
+    <link rel="shortcut icon" href="common/img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="" />
+    <meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport" />
+
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/jpreloader.css" />
+    <link rel="stylesheet" href="css/theme-responsive.css">
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="js/skrollr.js"></script>
+	<script src="js/jpreLoader.js"></script>
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
+    
+    <script type="text/javascript">
+        //*-- skrollr --*//
+        $(function () {
+           var s = skrollr.init({
+                edgeStrategy: 'set',
+                forceHeight: false,
+                smoothScrolling:true,
+                easing: {
+                    WTF: Math.random,
+                    easeOutElasticBig: function(p) {
+                      return 56*(p*p*p*p*p) - 175*(p*p*p*p) + 200*(p*p*p) - 100*(p*p) + 20*p;
+                    }
+                },
+                mobileCheck: function() {
+                    //hack - forces mobile version to be off
+                    return false;
+                }
+            });
+        });
+    </script>
+    <script>
+    <!-- jPreLoader script -->
+    $(document).ready(function() {
+        var timer;
+        
+        //calling jPreLoader function with properties
+        $('body').jpreLoader({
+            splashID: "#jSplash",
+            splashFunction: function() {  //passing Splash Screen script to jPreLoader
+                $('#jSplash').children('section').not('.selected').hide();
+                $('#jSplash').hide().fadeIn(800);
+                
+                timer = setInterval(function() {
+                    splashRotator();
+                }, 3000);
+            }
+        }, function() { //jPreLoader callback function
+            clearInterval(timer);
+        });
+    });
+    <!-- End of jPreLoader script -->
+
+    function splashRotator(){
+        var cur = $('#jSplash').children('.selected');
+        var next = $(cur).next();
+        
+        if($(next).length != 0) {
+            $(next).addClass('selected');
+        } else {
+            $('#jSplash').children('section:first-child').addClass('selected');
+            next = $('#jSplash').children('section:first-child');
+        }
+            
+        $(cur).removeClass('selected').fadeOut(800, function() {
+            $(next).fadeIn(800);
+        });
+    }
+    </script>
+</head>
+
+<body style="height: auto;">
+<div id="skrollr-body">
+    <!-- load -->
+    <div id="jSplash">
+    </div>
+    <!-- end load -->
+
+	<section id="topview">
+        <div class="section1" data-0="background-size: 100%;" data-110p="background-size: 140%; top:0%;" data-190p="top:-100%;">
+            <div class="sky" data-20p="opacity: 1;" data-70p="opacity: 0;"></div>
+            <div class="fog" data-30p="opacity: 1;transform: scale(1);" data-80p="opacity: 0;" data-100p="transform: scale(1.6);" ></div>
+            <div class="scroll" data-0="opacity:1;" data-10p="opacity:0; visibility: visible;" data-15p="visibility:hidden"><img src="img/scroll.png"></div>
+
+           <!--  <div class="solid solid1" data-100p="left: -60%; bottom:-40%" data-120p="left: -40%; bottom:5%" data-190p="left: 0%; bottom:10%" ></div>
+            <div class="solid solid2" data-100p="right: -50%; bottom:-10%" data-120p="right: -35%; bottom:6%" data-190p="right: 0%; bottom:5%" ></div> -->
+
+            <div class="solid solid1" data-105p="bottom:-40%" data-120p="left: 0%;bottom:20%" 
+            data-190p="left: -30%;bottom:14%" data-230p="left: -60%; bottom:40%"></div>
+            <div class="solid solid2" data-105p="bottom:-50%" data-120p="right: 0%; bottom:15%"
+            data-190p="right: -25%; bottom:20%" data-230p="right: -50%; bottom:50%"></div>
+        </div>
+    </section>
+    <section id="smartcity">
+        <div class="section2" data-400p="top:0%;" data-500p="top:-100%;">
+            <div class="tree" data-200p="top:5%" data-220p="top:0%"></div>
+            <div class="building" data-200p="top:20%;" data-215p="top:0%"></div>
+            <div class="fog-s" data-200p="left:14%;" data-400p="left:50%;"></div>
+            <div class="head" data-185p="opacity: 0;" data-220p="opacity: 1;" data-320p="opacity: 1;" data-335p="opacity: 0;"></div>
+            <section class="profile">
+                <div class="pf1" data-205p="opacity:0;" data-225p="opacity:1;" data-330p="opacity:1;" data-350p="opacity:0;">
+                    <img src="img/profile1.png">
+                </div>
+                <div class="pf2" data-204p="opacity:0;" data-228p="opacity:1;" data-320p="opacity:1;" data-338p="opacity:0;">
+                    <img src="img/profile2.png">
+                </div>
+                <div class="pf3" data-220p="opacity:0;" data-235p="opacity:1;" data-304p="opacity:1;" data-315p="opacity:0;">
+                    <img src="img/profile3.png">
+                </div>
+                <div class="pf4" data-215p="opacity:0;" data-227p="opacity:1;" data-320p="opacity:1;" data-340p="opacity:0;">
+                    <img src="img/profile4.png">
+                </div>
+                <div class="pf5" data-205p="opacity:0;" data-225p="opacity:1;" data-310p="opacity:1;" data-325p="opacity:0;">
+                    <img src="img/profile5.png">
+                </div>
+                <div class="pf6" data-209p="opacity:0;" data-220p="opacity:1;" data-320p="opacity:1;" data-345p="opacity:0;">
+                    <img src="img/profile6.png">
+                </div>
+                <div class="pf7" data-218p="opacity:0;" data-225p="opacity:1;" data-310p="opacity:1;" data-325p="opacity:0;">
+                    <img src="img/profile7.png">
+                </div>
+                <div class="pf8" data-215p="opacity:0;" data-227p="opacity:1;" data-260p="opacity:1;" data-275p="opacity:0;">
+                    <img src="img/profile8.png">
+                </div>
+                <div class="pf9" data-206p="opacity:0;" data-225p="opacity:1;" data-310p="opacity:1;" data-335p="opacity:0;">
+                    <img src="img/profile9.png">
+                </div>
+                <div class="pf10" data-215p="opacity:0;" data-227p="opacity:1;" data-280p="opacity:1;" data-295p="opacity:0;">
+                    <img src="img/profile10.png">
+                </div>
+                <div class="pf11" data-215p="opacity:0;" data-227p="opacity:1;" data-310p="opacity:1;" data-335p="opacity:0;">
+                    <img src="img/profile11.png">
+                </div>
+            </section>
+            <section class="wifi">
+                <div class="wifi1" data-215p="opacity:0;" data-227p="opacity:1;" data-260p="opacity:1;" data-275p="opacity:0;">
+                    <img src="img/logo-wifi.png">
+                </div>
+                <div class="wifi2" data-225p="opacity:0;" data-240p="opacity:1;" data-290p="opacity:1;" data-315p="opacity:0;">
+                    <img src="img/logo-wifi.png">
+                </div>
+                <div class="wifi3" data-220p="opacity:0;" data-235p="opacity:1;"  data-280p="opacity:1;" data-300p="opacity:0;">
+                    <img src="img/logo-wifi.png">
+                </div>
+                <div class="wifi4" data-210p="opacity:0;" data-227p="opacity:1;" data-290p="opacity:1;" data-315p="opacity:0;">
+                    <img src="img/logo-wifi.png">
+                </div>
+                <div class="wifi5" data-223p="opacity:0;" data-234p="opacity:1;" data-270p="opacity:1;" data-285p="opacity:0;">
+                    <img src="img/logo-wifi.png">
+                </div>
+            </section>
+            <section class="i-3g">
+                <div class="i-3g1" data-225p="opacity:0;" data-248p="opacity:1;" data-280p="opacity:1;" data-295p="opacity:0;">
+                    <img src="img/logo-3g.png">
+                </div>
+                <div class="i-3g2" data-235p="opacity:0;" data-250p="opacity:1;" data-315p="opacity:1;" data-335p="opacity:0;">
+                    <img src="img/logo-3g.png">
+                </div>
+                <div class="i-3g3" data-220p="opacity:0;" data-245p="opacity:1;" data-270p="opacity:1;" data-285p="opacity:0;">
+                    <img src="img/logo-3g.png">
+                </div>
+                <div class="i-3g4" data-230p="opacity:0;" data-245p="opacity:1;" data-310p="opacity:1;" data-325p="opacity:0;">
+                    <img src="img/logo-3g.png">
+                </div>
+            </section>
+            <section class="i-4g">
+                <div class="i-4g1" data-210p="opacity:0;" data-225p="opacity:1;" data-300p="opacity:1;" data-315p="opacity:0;">
+                    <img src="img/logo-4g.png">
+                </div>
+                <div class="i-4g2"data-204p="opacity:0;" data-228p="opacity:1;" data-290p="opacity:1;" data-318p="opacity:0;">
+                    <img src="img/logo-4g.png">
+                </div>
+                <div class="i-4g3" data-220p="opacity:0;" data-245p="opacity:1;" data-310p="opacity:1;" data-325p="opacity:0;">
+                    <img src="img/logo-4g.png">
+                </div>
+                <div class="i-4g4" data-218p="opacity:0;" data-225p="opacity:1;" data-310p="opacity:1;" data-325p="opacity:0;">
+                    <img src="img/logo-4g.png">
+                </div>
+                <div class="i-4g5" data-230p="opacity:0;" data-245p="opacity:1;" data-310p="opacity:1;" data-325p="opacity:0;">
+                    <img src="img/logo-4g.png">
+                </div>
+                <div class="i-4g6" data-216p="opacity:0;" data-230p="opacity:1;" data-280p="opacity:1;" data-295p="opacity:0;">
+                    <img src="img/logo-4g.png">
+                </div>
+                <div class="i-4g7" data-220p="opacity:0;" data-245p="opacity:1;" data-270p="opacity:1;" data-285p="opacity:0;">
+                    <img src="img/logo-4g.png">
+                </div>
+                <div class="i-4g8" data-230p="opacity:0;" data-245p="opacity:1;" data-310p="opacity:1;" data-325p="opacity:0;">
+                    <img src="img/logo-4g.png">
+                </div>
+            
+            </section>
+            <div class="solid solid1" data-399p="bottom:-40%" data-400p="left: 0%;bottom:25%" 
+            data-490p="left: -30%;bottom:14%" data-530p="left: -60%; bottom:40%"></div>
+            <div class="solid solid2" data-399p="bottom:-50%" data-400p="right: 0%; bottom:20%"
+            data-490p="right: -25%; bottom:20%" data-530p="right: -50%; bottom:50%"></div>
+        </div>
+        <!-- <div class="solid solid1" data-400p="left: -60%; bottom:-30%" data-495p="left: 0%; bottom:47%" ></div>
+        <div class="solid solid2" data-400p="right: -50%; bottom:-40%" data-495p="right: 0%; bottom:40%" ></div> -->
+    </section>
+
+    <section id="smartintelligence">
+        <div class="section3" data-950p="top:0%;" data-1050p="top:-100%;">
+            <div class="van" data-480p="left:42.5%; width: 6%; margin-left: -3%; top: 46.7%;" data-580p="left:29.5%; width: 24.8%; margin-left: -12.4%; top: 35.7%;"
+            data-760p="width: 24.8%; margin-left: -12.4%; top: 35.7%;" data-770p="width: 27.5%; margin-left: -14.1%; top: 33.7%; left: 26.5%">
+                <div class="dot-van"><img src="img/dot.png"></div>
+                <div class="van-img"><img src="img/van.png"></div>
+            </div>
+            <div class="car" data-500p="top:50%; left:44.5%; transform: scale(1);" data-580p="top:52%; left: 41%; transform: scale(3.6);"
+            data-735p="top:52%; left: 41%; transform: scale(3.6);" data-760p="top:60%; left: 40%; transform: scale(6);">
+                <img src="img/car.png">
+            </div>
+            <div class="car-extra" data-500p="top:48%; left: 94%; transform: scale(1);" data-580p="top:34%; left: 54%; transform: scale(0.16);"
+            data-735p="left: 54%; transform: scale(0.16);" data-760p="left: 52%; transform: scale(0.08);">
+                <img src="img/car2.png">
+            </div>
+            <div class="car2" data-755p="visibility:hidden;" data-760p="visibility:visible;" >
+                <img src="img/car3.png">
+            </div>
+            <div class="smoke" data-758p="opacity:0;" data-765p="opacity:1;">
+                <img src="img/smoke.png">
+            </div>
+            <div class="box-intelligen" data-600p="right:-30%;" data-620p="right:5%;" data-680p="right:5%;" data-710p="right:-30%;">
+                <img src="img/txt-intelligen1.png">
+            </div>
+            <div class="box-intelligen" data-770p="right:-30%;" data-800p="right:5%;" data-870p="right:5%;" data-900p="right:-30%;">
+                <img src="img/txt-intelligen2.png">
+            </div>
+
+            <div class="solid solid1" data-949p="bottom:-40%" data-950p="left: 0%;bottom:25%" 
+            data-1040p="left: -30%;bottom:14%" data-1080p="left: -60%; bottom:40%"></div>
+            <div class="solid solid2" data-949p="bottom:-50%" data-950p="right: 0%; bottom:20%"
+            data-1040p="right: -25%; bottom:20%" data-1080p="right: -50%; bottom:50%;"></div>
+        </div>
+        
+    </section>
+    
+    <section id="smarttransportation">
+        <div class="section4" data-1300p="top:0%;" data-1400p="top:-100%;">
+            <div class="sign" data-1110p="opacity:1;" data-1140p="opacity:0;"></div>
+            <div class="pictransport psp1" data-1100p="opacity:0; transform: scale(0.08); top: 32%;" data-1130p="opacity:1; transform: scale(1); top: 50%;" data-1210p="opacity:1; transform: scale(1);" data-1270p="opacity:0; transform: scale(0.1);"></div>
+            <div class="pictransport psp2" data-1160p="opacity:0;" data-1170p="opacity:1;"></div>
+
+            <div class="solid solid1" data-1299p="bottom:-40%" data-1300p="left: 0%;bottom:25%" 
+            data-1390p="left: -30%;bottom:14%" data-1430p="left: -60%; bottom:40%"></div>
+            <div class="solid solid2" data-1299p="bottom:-50%" data-1300p="right: 0%; bottom:20%"
+            data-1390p="right: -25%; bottom:20%" data-1430p="right: -50%; bottom:50%;"></div>
+        </div>
+    </section>
+    <section id="smartparking">
+        <div class="section5" data-1450p="top:0%;" data-1550p="top:-100%;"></div>
+        <div class="section6" data-1600p="top:0%;" data-1700p="top:-100%;"></div>
+        <div class="section7" data-1750p="top:0%;" data-1900p="top:-100%;">
+            <div class="item-cctv" data-1590p="bottom:-30%; left: 25%; transform: scale(1.4)" data-1900p="bottom: 0%; left: 75%; transform: scale(1)"></div>
+        </div>
+        <div class="section8" data-2200p="top:0%;" data-2300p="top:-100%;">
+            <div class="item-parking"></div>
+            <div class="car-park"  data-1900p="top:0%; left: 65.5%; transform: scale(1)" data-2000p="top:16%; left: 62%; transform: scale(1.4)"></div>
+            <div class="item-number"  data-2040p="opacity:0; transform: scale(0.4)" data-2080p="opacity:1; transform: scale(1)"></div>            
+            <div class="data-number" data-2110p="opacity:0; transform: scale(0.6)" data-2140p="opacity:1; transform: scale(1)"></div>
+
+            <div class="solid solid1" data-2190p="bottom:-40%" data2200p="left: 0%;bottom:25%" 
+            data-2290p="left: -30%;bottom:14%" data-2330p="left: -60%; bottom:40%"></div>
+            <div class="solid solid2" data-2190p="bottom:-50%" data-2200p="right: 0%; bottom:20%"
+            data-2290p="right: -25%; bottom:20%" data-2330p="right: -50%; bottom:50%;"></div>
+        </div>
+    </section>
+    <section id="smartbusiness">
+        <div class="section9" data-2350p="top:0%;" data-2450p="top:-100%;"></div>
+        <div class="section10" data-2600p="top:0%;" data-2700p="top:-100%;">
+            <div class="com">
+                <div class="cursor-point" data-2370p="top:70%;left: 60%;" data-2470p="top: 59%; left: 46%;" 
+                data-2490p="transform: scale(1)" data-2500p="transform: scale(0.85)"  data-2510p="transform: scale(1)" 
+                data-2530p="top: 59%; left: 46%;" data-2560p="top: 63%; left: 42%;"
+                data-2570p="transform: scale(1)" data-2580p="transform: scale(0.85)"  data-2590p="transform: scale(1)"></div>
+                <div class="change-com" data-2500p="opacity:0;"  data-2510p="opacity:1;"></div>
+            </div>
+        </div>
+        <div class="section11" data-2750p="top:0%;" data-2800p="top:-100%;">
+        </div>
+        <div class="section12" data-2850p="top:0%;" data-2950p="top:-100%;">
+            <div class="com-3"></div>
+
+            <div class="solid solid1" data-2849p="bottom:-40%" data-2850p="left: 0%;bottom:25%" 
+            data-2940p="left: -30%;bottom:14%" data-3080p="left: -60%; bottom:40%"></div>
+            <div class="solid solid2" data-2849p="bottom:-50%" data-2850p="right: 0%; bottom:20%"
+            data-2940p="right: -25%; bottom:20%" data-3080p="right: -50%; bottom:50%;"></div>
+        </div>
+    </section>
+    <section id="smartlife">
+        <div class="section13" data-3750p="top:0%;" data-3850p="top:-100%;">
+            <div class="fog-s" data-2950p="left:70%;" data-3400p="left:0%;"></div>
+            <div class="dome" data-2950p="top: 5%; left: 40%;" data-3020p="top: 7%;left: 38%;" data-3100p="top: 5%;left: 37%;" data-3140p="top: 6%;left: 39%;" data-3190p="left: 41%;" data-3230p="top: 7%;left:44%;" data-3360p="left: 38%; top: 6%;" ></div>
+            <div class="man" data-2850p="left:10%;" data-3000p="left:30%"></div>
+
+            <div class="gadget gadget1" data-3000p="opacity:0; transform: scale(0.9)" data-3030p="opacity:1; transform: scale(1)" data-3100p="opacity:1;" data-3120p="opacity:0;scale(0.9)"></div>
+            <div class="gadget gadget2" data-3145p="opacity:0; transform: scale(0.9)" data-3170p="opacity:1; transform: scale(1)" data-3240p="opacity:1;" data-3260p="opacity:0;scale(0.9)"></div>
+            <div class="gadget gadget3" data-3285p="opacity:0; transform: scale(0.9)" data-3315p="opacity:1; transform: scale(1)" data-3385p="opacity:1;" data-3405p="opacity:0;scale(0.9)"></div>
+            <div class="gadget gadget4" data-3430p="opacity:0; transform: scale(0.9)" data-3460p="opacity:1; transform: scale(1)" data-3530p="opacity:1;" data-3550p="opacity:0;scale(0.9)"></div>
+            <div class="gadget gadget5" data-3575p="opacity:0; transform: scale(0.9)" data-3605p="opacity:1; transform: scale(1)" data-3675p="opacity:1;" data-3700p="opacity:0;scale(0.9)"></div>
+
+            <div class="solid solid1" data-3749p="bottom:-40%" data-3750p="left: 0%;bottom:25%" 
+            data-3840p="left: -30%;bottom:14%" data-3880p="left: -60%; bottom:40%"></div>
+            <div class="solid solid2" data-3749p="bottom:-50%" data-3750p="right: 0%; bottom:20%"
+            data-3840p="right: -25%; bottom:20%" data-3880p="right: -50%; bottom:50%;"></div>
+        </div>
+    </section>
+    <section id="smarthome">
+        <div class="section14" data-3900p="top:0%;" data-4000p="top:-100%;"></div>
+        <div class="section15">
+            <div class="light">
+                <img src="img/light-off.png" class="light-off">
+                <img src="img/light-on.png" class="light-on">
+            </div>
+            <div class="curtain" >
+                <div class="inner-curtain">
+                </div>
+            </div>
+            <div class="show-tv">
+                <div class="box-vol">
+                    <div class="txt-vol">VOL</div>
+                    <div class="bar-vol">
+                        <div class="volume"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="show-air">
+                <div class="bg-air"></div>
+                <div class="box-air">
+                    <span class="txt-air">25</span>
+                    <div class="fan-air"></div>
+                    <div class="swing-air"></div>
+                </div>
+            </div>
+            <div class="mask"></div>
+            <div id="automation" class="automation" data-4030p="top:100%;" data-4060p="top:43%;" data-4120p="top:43%;" data-4160p="top:100%;">
+                <div class="in-con">
+                    <div class="row-auto">
+                        <div class="power" id="light"></div>
+                        <div class="progress-light">
+                            <div id="slider"></div>
+                        </div>
+                    </div>
+                    <div class="row-auto">
+                        <div class="power" id="tv"></div>
+                        <div class="mock" id="tv-con">
+                            <div class="btn-con btn-vol">
+                                <a class="vol-del flL">-</a>
+                                <a class="vol-plus flR">+</a>
+                            </div>
+                            <div class="btn-sound"></div>
+                            <div class="btn-con btn-ch">
+                                <a class="ch-del flL">-</a>
+                                <a class="ch-plus flR">+</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-auto">
+                        <div class="power" id="air"></div>
+                        <div class="mock" id="air-con">
+                            <div class="btn-con btn-air">
+                                <a class="air-del flL">-</a>
+                                <a class="air-plus flR">+</a>
+                            </div>
+                            <div class="btn-fan"></div>
+                            <div class="btn-swing"></div>
+                        </div>
+                    </div>
+                    <div class="row-auto">
+                        <div class="row">
+                            <div class="btn-open btn-curtain"></div>
+                            <div class="btn-pause btn-curtain"></div>
+                            <div class="btn-close btn-curtain"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="cctv" class="cctv" data-4200p="top:100%;" data-4230p="top:43%;" data-4300p="top:43%;" data-4330p="top:100%;">
+                <div class="in-con">
+                    <div class="power play-cctv" id="play-cctv"></div>
+                    <div class="cctv-box"></div>
+                    <div class="btn-ctv"></div>
+                </div>
+            </div>
+
+            <div id="entertain" class="entertain" data-4370p="top:100%;" data-4400p="top:43%;">
+                <div class="in-con">
+                    <div class="row-enter">
+                        <div class="power" id="vis-play"></div>
+                        <div class="vis-con">
+                            <div class="btn-ent ent-del" id="vis-del"></div>
+                            <div class="btn-ent ent-plus" id="vis-plus"></div>
+                        </div>
+                    </div>
+                    <div class="row-enter">
+                        <div class="power" id="max-play"></div>
+                        <div class="max-con">
+                            <div class="btn-ent ent-del" id="max-del"></div>
+                            <div class="btn-ent ent-plus" id="max-plus"></div>
+                            <div class="look"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,440 @@
+/* ------------------- MEDIA QUERIES ------------------- */
+/* STYLE 01 DESKTOP - Desktop, iPad landscape */
+
+
+/* ------------------- MEDIA QUERIES ------------------- */
+
+/* STYLE 01 DESKTOP - desktop, notebook */
+@media screen and ( max-width:1800px ) {
+nav {
+  height: 36px
+}
+.menu-1{
+  width: 235px;
+}
+.menu-2{
+  width: 236px;
+}
+.menu-3{
+  width: 236px;
+}
+.menu-4{
+  width: 236px;
+}
+.menu-5{
+  width: 236px;
+}
+.menu-6{
+  width: 236px;
+}
+.inner-menu {
+  width: 1420px
+}
+}
+
+@media screen and ( max-width:1600px ) {
+.light {
+  	top: 16%;
+}
+.row-auto {
+  margin: 0.4% 20% 1.3% 40%;
+}
+.power-auto {
+  width: 17%;
+  padding-bottom: 17%;
+}
+.dt-light {
+  width: 79%;
+}
+.mock {
+  width: 79%
+}
+}
+@media screen and ( max-width:1440px ) {
+.car-extra {
+  width: 33%;
+  margin-left: -16.5%;
+}
+.box-intelligen {
+  width: 35%;
+  padding-bottom: 44%;
+  margin-left: -17.5%;
+}
+nav {
+    height: 26px;
+}
+.inner-menu {
+  width: 1044px;
+}
+.menu-1 {
+  width: 175px;
+}
+.menu-2 {
+  width: 173px;
+}
+.menu-3 {
+  width: 172px;
+}
+.menu-4 {
+  width: 175px;
+}
+.menu-5 {
+  width: 174px;
+}
+.menu-6 {
+  width: 174px;
+}
+.in-con{
+  padding-bottom: 33%;
+}
+}
+/* STYLE 02 TABLET - iPad portait, Andriod tab */
+@media screen and ( max-width:1366px ) {
+.i-4g {
+  width: 30%;
+  margin-left: -15%;
+}
+.b-camera {
+  left: 15%;
+}
+}
+@media screen and ( max-width:1360px ) {
+.car-extra {
+  top: 2%;
+}
+}
+@media screen and ( max-width:1280px ) {
+.light {
+  top: 13%;
+}
+.car-extra {
+  top: 0%;
+}
+.automation, .cctv, .entertain {
+  width: 50%;
+  margin-left: -25%;
+  padding-bottom: 33%;
+}
+.section16 {
+  background-position: 92% 0;
+}
+}
+@media screen and ( max-width:1140px ) {
+.scroll {
+  width: 340px;
+  height: 140px;
+  margin-left: -170px;
+  margin-top: -70px;
+}
+#skrollr-body {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+/*.sky-box{
+  height:50vw;
+}
+.bg-sky, .sky, section, #smartchoice{
+  height: 100vw;
+}
+#topview{
+  height: 110vw;
+}
+#smartcity{
+  height: 300vw;
+}
+#smartintelligence {
+  height: 340vw;
+}
+#smarttransportation {
+  height: 250vw;
+}
+#smartbuilding {
+  height: 500vw;
+}
+#smartbusiness {
+  height: 680vw;
+}
+#smartlife {
+  height: 150vw;
+}
+#smarthome {
+  height: 520vw;
+}*/
+
+
+}
+
+/* STYLE 03 TABLET - iPad portait, Andriod tab */
+
+@media screen and ( max-width:980px ) {
+.logo-main {
+	width: 60%;
+  padding-bottom: 16%;
+  margin-left: -30%;
+  background-size: 100%;
+}
+.pictransport {
+  width: 72%;
+  padding-bottom: 38.4%;
+  margin-left: -36%;
+  margin-top: -19.2%;
+}
+.inner-menu {
+  width: 96%;
+  margin: 0 auto;
+}
+.menu{
+  width: 16.66%;
+}
+.toggle-1 {
+  width: 36%;
+  padding-bottom: 16.5%;
+  margin-left: -18%;
+  margin-top: -8.25%;
+  top: 22%;
+}
+.toggle-2 {
+  width: 40%;
+}
+.toggle-3-2{
+  width: 124%;
+  padding-bottom: 56%;
+  margin-top: -28%;
+  margin-left: -62%;
+}
+.toggle-2 {
+  width: 34%;
+  padding-bottom: 12%;
+  margin-left: -4.5%;
+  margin-top: -6%;
+} 
+.toggle-3 {
+  width: 36%;
+  padding-bottom: 10%;
+  margin-left: -18%;
+  margin-top: -5%;
+}
+.data-number {
+  width: 42%;
+  padding-bottom: 66%;
+  margin-left: -25%;
+  margin-top: -33%;
+}
+.toggle-4 {
+  width: 34%;
+  height: 0;
+  padding-bottom: 10%;
+  margin-top: -5%;
+  margin-left: -15%;
+}
+.toggle-5 {
+  width: 35%;
+  padding-bottom: 16%;
+  margin-top: -8%;
+}
+.toggle-6 {
+  width: 34%;
+  padding-bottom: 15%;
+  margin-top: -7.5%;
+}
+.toggle-7, .toggle-8 {
+  width: 34%;
+  padding-bottom: 21%;
+  margin-top: -10.5%;
+  margin-left: -17%;
+}
+.toggle-9 {
+  width: 36%;
+  padding-bottom: 10.6%;
+  margin-top: -6.3%;
+}
+.box-slide {
+    width: 28%;
+    padding-bottom: 42%;
+    left: 73.5%;
+    margin-left: -14%;
+    margin-top: -21%;
+    top: 43%;
+}
+.toggle-10-2 {
+  width: 40%;
+  height: 0;
+  padding-bottom: 42%;
+  margin-top: -21%;
+  margin-left: -20%;
+  position: absolute;
+  z-index: 5;
+  background: url("../img/toggle-10-2.png") no-repeat center;
+  background-size: contain;
+  top: 50%
+}
+.toggle-11 {
+  width: 32%;
+  padding-bottom: 9%;
+  margin-top: -4.5%;
+  margin-left: -16%;
+  top: 48%;
+}
+.boxplay {
+  width: 10%;
+  padding-bottom: 10%;
+  margin-top: -5%;
+  margin-left: -5%;
+}
+.link-popup {
+  width: 9%;
+  padding-bottom: 9%;
+  margin-top: -4.5%;
+  margin-left: -4.5%;
+}
+.link-mo{
+  left: 62%;
+}
+.toggle-12 {
+  left: 85%;
+}
+.play-cctv {
+  margin-top: -15%;
+  margin-left: -15%;
+  width: 30%;
+  padding-bottom: 30%;
+}
+#vis-play, #max-play {
+  width: 20%;
+  padding-bottom: 20%;
+}
+.row-enter {
+  margin: 0 13% 1.5% 53.5%;
+}
+.slideSelectors {
+  bottom: -17px;
+}
+}
+
+
+/* STYLE 04 MOBILE - iPhone5 landscape, Andriod tab, Andriod mobile */
+
+
+
+/*=== Add by KAI ===*/
+@media screen and ( max-width:800px ) {
+.inner-menu {
+	width: 100%;
+	height:26px;
+}
+.inner-menu .menu{
+	width: 16.66%;
+	background-size: contain;
+}
+.box-intelligen {
+  margin-top: -22%;
+  top: 50%;
+}
+.toggle-2 {
+  width: 40%;
+  padding-bottom: 14%;
+  margin-left: -15%;
+  margin-top: -7%;
+  bottom: 18%;
+}
+.toggle-4 {
+  width: 46%;
+  height: 0;
+  padding-bottom: 14%;
+  margin-top: -7%;
+  margin-left: -14%;
+  top: 23%;
+}
+.toggle-5 {
+  width: 44%;
+  padding-bottom: 20%;
+  margin-top: -10%;
+  margin-left: -22%;
+}
+}
+@media screen and ( max-width:740px ) {
+#smarthome .logo-smart {
+  width: 18%;
+  margin-top: -2%;
+}
+.logo-smart {
+  width: 18%;
+  top: 34px;
+}
+.menu-bullet {
+  height: 160px;
+  margin-top: -80px;
+}
+.progress-light{display: none}
+.toggle-12 {
+  width: 82%;
+  padding-bottom: 24%;
+  margin-top: -12%;
+  top: 62%;
+}
+.toggle-11 {
+    width: 41%;
+    padding-bottom: 11%;
+    margin-top: -7.4%;
+    margin-left: -13%;
+    top: 48%;
+}
+.box-slide {
+  width: 28%;
+  padding-bottom: 42%;
+  left: 75.5%;
+  margin-left: -14%;
+  margin-top: -21%;
+  top: 45%;
+} 
+.btn-con a {
+  font-size: 0.5em;
+  line-height: 1.2em;
+}
+}
+/*=== Add by KAI ===*/
+/*=== Add by KAI ===*/
+@media screen and ( max-width:680px ) {
+
+}
+/*=== Add by KAI ===*/
+
+/* STYLE 05 MOBILE - iPhone4 landscape, Andriod mobile */
+
+@media screen and ( max-width:600px ) {
+.scroll {
+  width: 260px;
+  height: 106px;
+  margin-left: -130px;
+  margin-top: -53px;
+}
+}
+
+/* STYLE 06 MOBILE - iPhone portait */
+@media screen and ( max-width:570px ) {
+.toggle-10-2 {
+  width: 45%;
+  padding-bottom: 48%;
+  margin-top: -24%;
+  margin-left: -16%;
+}
+}
+@media screen and ( max-width:480px ) {
+
+}
+
+
+/* STYLE 07 FIXED - Andriod portrait */
+@media screen and ( max-width:384px ) {
+.scroll {
+  width: 210px;
+  height: 86px;
+  margin-left: -105px;
+  margin-top: -43px;
+}
+}
+
+/* STYLE 08 FIXED - iPhone4 portrait */
+@media screen and ( max-width:320px ) {
+}

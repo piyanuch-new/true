@@ -1,0 +1,22 @@
+#jpreOverlay {
+	background-color: #fff;
+}
+#jpreLoader{
+	width:292px;
+	height:90px;
+	overflow: hidden;
+	margin-top: -45px;
+}
+
+#jpreBar {
+	background: url(../img/bar.png);
+}
+
+#jprePercentage {
+	color:#666;
+	line-height: 40px;
+	top: 5px;
+	font-weight:bold;
+	text-align:center;
+	top:-100%;
+}

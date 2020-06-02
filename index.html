@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>True</title>
+    <link rel="shortcut icon" href="common/img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="" />
+    <meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport" />
+
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/jpreloader.css" />
+    <link rel="stylesheet" href="css/theme-responsive.css">
+
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/jquery-ui-1.8.21.custom.min.js"></script>
+    <script src="js/animation.js"></script>
+    <script src="js/jpreLoader.js"></script>
+
+    <script src="js/skrollr.js"></script>
+    <script src="js/skrollr.menu.js"></script>
+    <script src="js/jquery.iosslider.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        //*-- skrollr --*//
+        function parallax() {
+           var s = skrollr.init({
+                edgeStrategy: 'set',
+                smoothScrolling:true,
+                forceHeight: false,
+                easing: {
+                    //This easing will sure drive you crazy
+                    wtf: Math.random,
+                    inverted: function(p) {
+                        return 1 - p;
+                    }
+                },
+                mobileCheck:false,
+                mobileDeceleration: 0.004,
+            });
+           skrollr.menu.init(s, {
+                animate: true,
+                change: function(hash, top) {
+                    var winh = $(window).height(),
+                        vh = top/winh,
+                        bullet = $(".bullet"),
+                        menu = $(".menu");
+                    console.log(hash, top, vh);
+                    if(hash == "#smartcity"){
+                        bullet.removeClass("active");
+                        menu.removeClass("active");
+                        $(".b1").addClass("active");
+                        $(".menu-1").addClass("active");
+                    }
+                    if(hash == "#smartbuilding"){
+                        bullet.removeClass("active");
+                        menu.removeClass("active");
+                        $(".b4").addClass("active");
+                        $(".menu-2").addClass("active");
+                    }
+                    if(hash == "#smartbusiness"){
+                        bullet.removeClass("active");
+                        menu.removeClass("active");
+                        $(".b5").addClass("active");
+                        $(".menu-3").addClass("active");
+                    }
+                    if(hash == "#smartlife"){
+                        bullet.removeClass("active");
+                        menu.removeClass("active");
+                        $(".b6").addClass("active");
+                        $(".menu-4").addClass("active");
+                    }
+                    if(hash == "#smarthome"){
+                        bullet.removeClass("active");
+                        menu.removeClass("active");
+                        $(".menu-5").addClass("active");
+                        $(".b7").addClass("active");
+                    }
+                    if(hash == "#smartchoice"){
+                        bullet.removeClass("active");
+                        menu.removeClass("active");
+                        $(".b8").addClass("active");
+                        $(".menu-6").addClass("active");
+                    }
+                },
+                complexLinks: false,
+                duration: function(currentTop, targetTop) {
+                    //By default, the duration is hardcoded at 500ms.
+                    return 4000;
+
+                    //But you could calculate a value based on the current scroll position (`currentTop`) and the target scroll position (`targetTop`).
+                    //return Math.abs(currentTop - targetTop) * 10;
+                },
+                //updateUrl: false
+            });
+        }
+        $(document).ready(function() {
+            $('.iosSlider').iosSlider({
+                desktopClickDrag: true,
+                snapToChildren: true,
+                infiniteSlider: true,
+                snapSlideCenter: true,
+                onSlideChange: slideChange,
+                autoSlide: true,
+                keyboardControls: true,
+                navSlideSelector: '.slideSelectors .sliderContainer .item',
+            });
+
+            function slideChange(args) {
+                $('.slideSelectors .sliderContainer .item').removeClass('selected');
+                $('.slideSelectors .sliderContainer .item:eq(' + (args.currentSlideNumber - 1) + ')').addClass('selected');
+            }
+        });
+        parallax();
+        var timer;
+
+        //calling jPreLoader function with properties
+        $('body').jpreLoader({
+            splashID: "#jSplash",
+            splashFunction: function() {  //passing Splash Screen script to jPreLoader
+                $('#jSplash').children('section').not('.selected').hide();
+                $('#jSplash').hide().fadeIn(800);
+
+                timer = setInterval(function() {
+                    splashRotator();
+                }, 3000);
+            }
+        }, function() { //jPreLoader callback function
+            clearInterval(timer);
+        });
+		detectPortrait();
+		$(window).resize(function() {
+			detectPortrait();
+		});
+		function detectPortrait() {
+			if(window.innerWidth < 480 || window.innerHeight > window.innerWidth){
+                    $("#skrollr-body").hide();
+                    $("#mobile").show();
+			}
+            else{
+                $("#skrollr-body").show();
+                $("#mobile").hide();
+                parallax();
+            }
+		}
+        /*=== add by KAI ===*/
+    });
+
+    function splashRotator(){
+        var cur = $('#jSplash').children('.selected');
+        var next = $(cur).next();
+
+        if($(next).length != 0) {
+            $(next).addClass('selected');
+        } else {
+            $('#jSplash').children('section:first-child').addClass('selected');
+            next = $('#jSplash').children('section:first-child');
+        }
+
+        $(cur).removeClass('selected').fadeOut(800, function() {
+            $(next).fadeIn(800);
+        });
+    }
+    </script>
+</head>
+
+<body style="height: auto;">
+<div id="mobile">
+    <div class="inner-mobile"></div>
+</div>
+<div id="skrollr-body">
+    <!-- load -->
+    <div id="jSplash">
+    </div>
+    <!-- end load -->
+    <nav data-170p="opacity: 0;top:-50px;" data-190p="opacity: 1;top:0;">
+        <div class="inner-menu">
+            <a href="#smartcity" class="menu-1 menu active"></a>
+            <a href="#smartbuilding" class="menu-2 menu"></a>
+            <a href="#smartbusiness" class="menu-3 menu"></a>
+            <a href="#smartlife" class="menu-4 menu"></a>
+            <a href="#smarthome" class="menu-5 menu"></a>
+            <a href="#smartchoice" class="menu-6 menu"></a>
+        </div>
+    </nav>
+    <div class="menu-bullet" data-190p="opacity: 0;left: -80px;" data-220p="opacity: 1;left: 25px;">
+        <div class="inner-bullet">
+            <a href="#smartcity" class="bullet b1 active"></a>
+            <a href="#smartintelligence" class="bullet b2"></a>
+            <a href="#smarttransportation" class="bullet b3"></a>
+            <a href="#smartbuilding" class="bullet b4"></a>
+            <a href="#smartbusiness" class="bullet b5"></a>
+            <a href="#smartlife" class="bullet b6"></a>
+            <a href="#smarthome" class="bullet b7"></a>
+            <a href="#smartchoice" class="bullet b8"></a>
+        </div>
+    </div>
+    <section class="sky-box">
+        <div class="bg-sky" data-25p="opacity:1;" data-50p="opacity:0;"data-59p="visibility: visible;" data-60p="visibility: hidden;">
+            <div class="logo-main" data-15p="opacity:1;" data-50p="opacity:0;"></div>
+        </div>
+    </section>
+    <section id="topview">
+        <div class="section1" data-65p="background-size: 100%;" data-95p="background-size: 140%;" data-100p="top:0%;"
+            data-144p="top:-100%;visibility: visible;"  data-145p="visibility: hidden;">
+            <div class="sky" data-60p="opacity: 1;" data-80p="opacity: 0;"></div>
+            <div class="fog" data-70p="opacity: 1;transform: scale(1);" data-90p="opacity: 0;" data-110p="transform: scale(1.6);" ></div>
+            <div class="fluid fl2"data-110p="opacity:0;" data-115p="opacity:1;"></div>
+            <div class="fluid fl4"data-115p="opacity:0;" data-120p="opacity:1;"></div>
+            <div class="fluid fl6"data-120p="opacity:0;" data-125p="opacity:1;"></div>
+            <div class="fluid fl8"data-125p="opacity:0;" data-130p="opacity:1;"></div>
+        </div>
+    </section>
+    <section id="smartcity">
+        <div class="section2" data-250p="top:0%;" data-300p="top:-100%; visibility: visible;" data-305p="visibility: hidden;">
+            <div class="logo-smart"><img src="img/logo-city.png"></div>
+            <div class="tree" data-100p="top:5%" data-120p="top:0%"></div>
+            <div class="building" data-100p="top:20%;" data-120p="top:0%"></div>
+            <div class="fog-s" data-100p="left:14%;" data-240p="left:50%;"></div>
+            <div class="head" data-110p="opacity: 0;" data-130p="opacity: 1;"></div>
+            <div class="object" data-130p="opacity: 0;" data-160p="opacity: 1;"></div>
+        </div>
+    </section>
+    <section id="smartintelligence">
+        <div class="section3" data-750p="visibility: visible; top:0%;" data-760p="visibility: hidden; top: -100%;">
+            <div class="van" data-280p="left:42.5%; width: 6%; margin-left: -3%; top: 51.7%;" data-330p="left:28.5%; width: 26.8%; margin-left: -13.4%; top: 39.7%;" data-540p="left:28.5%; width: 26.8%; margin-left: -13.4%; top: 39.7%;" data-580p="left:25%; width: 30%; margin-left: -15%; top: 36.7%;">
+                <div class="dot-van"><img src="img/dot.png"></div>
+                <div class="van-img"><img src="img/van.png"></div>
+            </div>
+            <div class="car" data-280p="top:54.7%; left:44.5%; transform: scale(1);" data-330p="top:56.7%; left: 41%; transform: scale(3.6);" data-540p="top:56.7%; left: 41%; transform: scale(3.6);" data-575p="top: 63.7%; left: 37%; transform: scale(7);opacity:1;" data-580p="opacity:0">
+                <img src="img/car.png">
+            </div>
+            <div class="toggle-1 tg1" data-340p="opacity: 0; left:50%;" data-360p="opacity: 1;left:43.4%;"
+            data-410p="opacity: 1;" data-430p="opacity: 0;"></div>
+            <div class="toggle-1 tg2" data-440p="opacity: 0; left:50%;" data-460p="opacity: 1;left:43.4%;"
+            data-510p="opacity: 1;" data-530p="opacity: 0;"></div>
+            <div class="box-intelligen gif1" data-440p="right:-30%;opacity: 0;" data-460p="right:5%;opacity: 1;" 
+            data-510p="opacity: 1;" data-530p="opacity: 0;"><img src="img/inter1.gif"></div>
+            <div class="car-extra" data-540p="top:48%; left: 94%; transform: scale(1);" data-580p="top: 39%; left: 53.4%; transform: scale(0.14);" data-700p="visibility: visible;" data-730p="visibility: hidden;">
+                <img src="img/car2.png">
+            </div>
+            <div class="car2" data-575p="visibility:hidden;" data-580p="visibility:visible;" >
+                <img src="img/car3.png">
+            </div>
+            <div class="smoke" data-580p="opacity:0;" data-590p="opacity:1;">
+                <img src="img/smoke.png">
+            </div>
+            <div class="box-intelligen gif2" data-610p="right:-30%;opacity:0;" data-630p="right:5%;opacity:1;" data-680p="opacity:1;" data-700p="opacity:0;"><img src="img/inter2.gif"></div>
+        </div>
+    </section>
+    <section id="smarttransportation">
+        <div class="section4" data-700p="left:100%;" data-750p="left:0%;" data-950p="top:0%;" data-1000p="top:-100%;">
+            <div class="toggle-2" data-750p="left: 30%;opacity:0;" data-770p="left: 22.5%;opacity:1;"></div>
+            <div class="pictransport psp" data-820p="opacity:0;" data-840p="opacity:1;"></div>
+        </div>
+        <div class="section5" data-870p="left:100%;" data-890p="left:0%;" data-950p="top:0%;" data-1000p="top:-100%;">
+        </div>
+    </section>    
+    <section id="smartbuilding">        
+        <div class="section-buil" data-1460p="top:0%;visibility:visible;" data-1500p="top: -100%;visibility:hidden;">
+            <div class="section6" data-1050p="left:0%;" data-1100p="left:-32%;"
+            data-1150p="height:100vh;top:0%; background-size: 100%;" data-1200p="height:50vh;top:50%;background-size: 54%;visibility:visible;"
+            data-1420p="visibility:hidden;">
+                <div class="toggle-3" data-1010p="left:100%; opacity:0;" data-1030p="left:78%; opacity:1;"
+                data-1050p=" opacity:1;" data-1070p=" opacity:0;"></div>
+            </div>
+            <div class="section7" data-1050p="left:100%; width: 100%;" data-1100p="left:36.5%; width: 63.5%;"
+            data-1410p="left:36.5%; width: 63.5%;" data-1430p="left:0%; width: 100%;"
+             data-1460p="top:0%;" data-1500p="top: -100%;">
+                <div class="item-parking1" data-1365p="opacity:1;" data-1370p="opacity:0;"></div>
+                <div class="item-parking2" data-1410p="opacity:0; visibility:hidden;"
+                data-1412p="opacity:1; visibility:visible;"></div>
+                <div class="item-number" data-1220p="opacity: 0; transform: scale(1.2)"
+                data-1240p="opacity:1; transform: scale(1)" data-1270p="opacity:1;" data-1290p="opacity:0;"></div>
+                <div class="data-number" data-1260p="opacity:0; left: 100%;" data-1280p="opacity:1;left: 82%;"
+                data-1330p="opacity:1;" data-1350p="opacity:0;">
+                    <div class="toggle-3-2"></div>
+                </div>  
+            </div>
+            <div class="item-cctv" data-1150p="left:-30%;" data-1200p="left:0%;visibility:visible;" data-1420p="visibility:hidden;"></div>
+            <!-- <div class="section7" data-1000p="left:100%; width: 100%;" data-1050p="left:36.5%; width: 63.5%;"
+            data-1360p="left:36.5%; width: 63.5%;" data-1380p="left:0%; width: 100%;">
+                <div class="item-parking" data-1320p="transform: rotate(0deg); top: 0%; left: 0%;"
+                data-1340p="transform: rotate(-70deg); top: -61.6%; left: -40%;"
+                data-1345p="visibility:visible;" data-1345p="visibility:hidden;"></div>
+                <div class="item-parking" data-1350p="transform: rotate(-70deg); top: -61.6%;left:-80%;"
+                data-1370p="left:-19%;"></div>
+                <div class="item-number" data-1170p="opacity: 0; transform: scale(1.2)"
+                data-1190p="opacity:1; transform: scale(1)" data-1220p="opacity:1;" data-1240p="opacity:0;"></div>
+                <div class="data-number" data-1210p="opacity:0; left: 100%;" data-1230p="opacity:1;left: 82%;"
+                data-1280p="opacity:1;" data-1300p="opacity:0;"></div>  
+            </div> -->
+            <div class="logo-smart" ><img src="img/logo-building.png"></div>
+            
+            <div class="fluid fl1"data-1460p="opacity:0;" data-1465p="opacity:1;"></div>
+            <div class="fluid fl2"data-1465p="opacity:0;" data-1470p="opacity:1;"></div>
+            <div class="fluid fl3"data-1470p="opacity:0;" data-1475p="opacity:1;"></div>
+            <div class="fluid fl4"data-1475p="opacity:0;" data-1480p="opacity:1;"></div>
+            <div class="fluid fl5"data-1480p="opacity:0;" data-1485p="opacity:1;"></div>
+            <div class="fluid fl6"data-1485p="opacity:0;" data-1490p="opacity:1;"></div>
+            <div class="fluid fl7"data-1490p="opacity:0;" data-1495p="opacity:1;"></div>
+            <div class="fluid fl8"data-1495p="opacity:0;" data-1500p="opacity:1;"></div>
+        </div>
+    </section>
+    <section id="smartbusiness">
+        <div class="logo-smart"  data-2150p="top:54px;" data-2200p="top:-60px;"><img src="img/logo-bussiness.png"></div>
+        <div class="section8" data-1640p="top:0%;" data-1660p="top:-100%;">
+            <div class="i-wifi1"></div>
+            <div class="i-wifi5"></div>
+            <div class="toggle-4" data-1530p="left:100%;opacity:0;" data-1550p="left:79%;opacity:1;"
+            data-1620p="opacity:1;" data-1640p="opacity:0;"></div>
+            <div class="toggle-5" data-1550p="left:100%;opacity:0;" data-1570p="left:68%;opacity:1;"
+            data-1620p="opacity:1;" data-1640p="opacity:0;"></div>
+        </div>
+        <div class="section9" data-1860p="top:0%;" data-1880p="top:-100%;">
+            
+            <div class="toggle-6" data-1680p="opacity:0; left:74%;" data-1700p="opacity:1;left:56%;"></div>
+            <div class="com">
+                <div class="cursor-point" data-1700p="top:70%;left: 60%;" data-1730p="top: 60%; left: 55%;" 
+                data-1740p="transform: scale(1)" data-1750p="transform: scale(0.85)" data-1760p="transform: scale(1)"></div>
+                <div class="i-wifi2" data-1760p="visibility: hidden;" data-1770p="opacity:0; visibility: visible;" data-1780p="opacity:1;"></div>
+            </div>
+        </div>
+        <div class="section10" data-2040p="top:0%;" data-2060p="top:-100%;">
+            <div class="toggle-7" data-1900p="opacity:0; left:0%;" data-1920p="opacity:1;left:25%;"></div>
+            <div class="toggle-8" data-1960p="opacity:0; left:100%;" data-1970p="opacity:1;left:76.5%;"></div>
+        </div>
+        <div class="section11" data-2150p="top:0%;" data-2170p="top:-100%;visibility: visible;opacity:1;" data-2210p="visibility: hidden; opacyty:0;">
+            <div class="i-wifi3"></div> 
+            <div class="i-wifi4"></div>    
+            <div class="toggle-9" data-2080p="opacity:0; left:40%;" data-2100p="opacity:1;left:23%;"></div>  
+
+            <div class="fluid fl2"data-2150p="opacity:0;" data-2155p="opacity:1;"></div>
+            <div class="fluid fl4"data-2155p="opacity:0;" data-2160p="opacity:1;"></div>
+            <div class="fluid fl6"data-2160p="opacity:0;" data-2165p="opacity:1;"></div>
+            <div class="fluid fl8"data-2165p="opacity:0;" data-2170p="opacity:1;"></div>      
+        </div>
+    </section>   
+
+   <!--  data-2120p="opacity:0; left:80%;" data-2140p="opacity:1; left:74%;"
+            data-2200p="opacity:1" data-2220p="opacity:0;"
+
+
+             data-2230p="opacity:0;" data-2240p="opacity:1;"
+            data-2300p="left:90%;opacity:1;" data-2330p="left:72.5%;opacity:0;"
+
+             --> 
+    <section id="smartlife" data-2360p="visibility: visible;" data-2370p="visibility: hidden;">
+        <div class="section12" data-2300p="top:0%;" data-2350p="top:-100%;" data-2360p="top:-120%;">
+            <div class="logo-smart"><img src="img/logo-life.png"></div>
+            <div class="toggle-10" data-2190p="opacity:0; left:80%;" data-2210p="opacity:1; left:64%;"
+            data-2250p="opacity:1;"  data-2260p="opacity:0;"></div>
+            <div class="fog-s" data-2180p="left:70%;" data-2400p="left:0%;"></div>
+            <div class="dome" data-2160p="top: 5%; left: 40%;" data-2280p="top: 7%;left: 38%;" data-2380p="top: 5%;left: 37%;"></div>
+            <div class="box-slide" data-2270p="opacity:0;" data-2280p="opacity:1;">
+                <div class="topslide"></div>
+                <div class="responsive_height">
+                    <div class="container">
+                        <div class="iosSlider">
+                            <div class="slider">
+                                <div class="item">
+                                    <img src="img/product-01.png">
+                                </div>
+                                <div class="item">
+                                    <img src="img/product-02.png">
+                                </div>
+                                <div class="item">
+                                    <img src="img/product-03.png">
+                                </div>
+                                <div class="item">
+                                    <img src="img/product-04.png">
+                                </div>
+                                <div class="item">
+                                    <img src="img/product-05.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slideSelectors">  
+                    <div class="sliderContainer">
+                        <div class="item selected"></div>                    
+                        <div class="item"></div>                    
+                        <div class="item"></div>                    
+                        <div class="item"></div>                    
+                        <div class="item"></div>
+                    </div> 
+                </div>
+            </div>
+            <div class="fluid fl1"data-2300p="opacity:0; display:none;" data-2305p="opacity:1; display:block"></div>
+            <div class="fluid fl2"data-2305p="opacity:0; display:none;" data-2310p="opacity:1; display:block"></div>
+            <div class="fluid fl3"data-2310p="opacity:0; display:none;" data-2315p="opacity:1; display:block"></div>
+            <div class="fluid fl4"data-2315p="opacity:0; display:none;" data-2320p="opacity:1; display:block"></div>
+            <div class="fluid fl5"data-2320p="opacity:0; display:none;" data-2325p="opacity:1; display:block"></div>
+            <div class="fluid fl6"data-2325p="opacity:0; display:none;" data-2330p="opacity:1; display:block"></div>
+            <div class="fluid fl7"data-2330p="opacity:0; display:none;" data-2335p="opacity:1; display:block"></div>
+            <div class="fluid fl8"data-2335p="opacity:0; display:none;" data-2340p="opacity:1; display:block;"></div>
+        </div>
+    </section>
+    
+    <section id="smarthome">
+        <div class="logo-smart" data-2820p="visibility: visible; top:54px;" data-2840p="visibility: hidden;top:-54px;"><img src="img/logo-home.png"></div>
+        <div class="section14" data-2400p="top:0%;" data-2440p="top:-100%;">
+            <div class="toggle-10-2" data-2340p=" opacity:0; left:70%;" data-2360p="opacity:1; left:43%;"></div>
+        </div>
+        <div class="section15" data-2820p="top:0%;" data-2860p="top:-100%;visibility: visible;opacity:1;" data-2870p="visibility: hidden; opacyty:0;">
+                <div class="toggle-11" data-2440p="left:65%; opacity:0;" data-2460p="left:56%;opacity:1;"></div>
+                <div class="light">
+                    <img src="img/light-off.png" class="light-off">
+                    <img src="img/light-on.png" class="light-on">
+                </div>
+                <div class="curtain" >
+                    <div class="inner-curtain">
+                    </div>
+                </div>
+                <div class="show-tv">
+                    <div class="box-vol">
+                        <div class="txt-vol">VOL</div>
+                        <div class="bar-vol">
+                            <div class="volume"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="show-air">
+                    <div class="bg-air"></div>
+                    <div class="box-air">
+                        <span class="txt-air">25</span>
+                        <div class="fan-air"></div>
+                        <div class="swing-air"></div>
+                    </div>
+                </div>
+                <div class="mask"></div>
+                <div class="fade-light"></div>
+                <div class="boxplay">
+                    <div class="link-max"></div>
+                    <div class="link-vis"></div>
+                </div>
+                <div class="link-popup link-mo"></div>
+                <div class="link-popup link-auto"></div>
+                <div class="link-popup link-voice"></div>
+                <div class="togglemax popup">
+                    <div class="b-close"><img src="img/bt-close.png"></div>
+                </div>
+                <div class="togglevis popup">
+                    <div class="b-close"><img src="img/bt-close.png"></div>
+                </div>
+                <div class="togglemo popup">
+                    <div class="b-close"><img src="img/bt-close.png"></div>
+                </div>
+                <div class="toggleauto popup">
+                    <div class="b-close"><img src="img/bt-close.png"></div>
+                </div>
+                <div class="togglevoice popup">
+                    <div class="b-close"><img src="img/bt-close.png"></div>
+                </div>
+                <div id="automation" class="automation" data-2500p="opacity:0;display:none;"
+                data-2520p="opacity:1; display:block;" data-2580p="opacity:1;display:block;" data-2600p="opacity:0;display:none;">
+                    <div class="toggle-12"></div>
+                    <div class="in-con">
+                        <div class="row-auto">
+                            <div class="power power-auto" id="light"></div>
+                            <div class="dt-light">
+                                <div class="progress-light">
+                                    <div id="slider"></div>
+                                </div>
+                                <div class="box-colorlight">
+                                    <a class="blue"></a>
+                                    <a class="green"></a>
+                                    <a class="orange"></a>
+                                    <a class="red"></a>
+                                    <a class="white"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-auto">
+                            <div class="power power-auto" id="tv"></div>
+                            <div class="mock" id="tv-con">
+                                <div class="btn-con btn-vol">
+                                    <a class="vol-del flL">-</a>
+                                    <a class="vol-plus flR">+</a>
+                                </div>
+                                <div class="btn-sound"></div>
+                                <div class="btn-con btn-ch">
+                                    <a class="ch-del flL">-</a>
+                                    <a class="ch-plus flR">+</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-auto">
+                            <div class="power power-auto" id="air"></div>
+                            <div class="mock" id="air-con">
+                                <div class="btn-con btn-air">
+                                    <a class="air-del flL">-</a>
+                                    <a class="air-plus flR">+</a>
+                                </div>
+                                <div class="btn-fan"></div>
+                                <div class="btn-swing"></div>
+                            </div>
+                        </div>
+                        <div class="row-auto">
+                            <div class="row">
+                                <div class="btn-open btn-curtain"></div>
+                                <div class="btn-pause btn-curtain"></div>
+                                <div class="btn-close btn-curtain"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="toggle-12"></div>
+                </div>
+
+                <div id="cctv" class="cctv" data-2620p="opacity:0;display:none;" data-2640p="opacity:1; display:block;"
+                data-2700p="opacity:1; display:block;" data-2720p="opacity:0; display:none;">
+                    <div class="in-con">
+                        <div class="cctvL">
+                            <div class="power play-cctv" id="play-cctv"></div>
+                        </div>
+                        <div class="cctvR">
+                            <div class="cctv-box"></div>
+                            <!-- <div class="btn-ctv"></div> -->
+                        </div>                        
+                    </div>
+                    <div class="toggle-12"></div>
+                </div>
+
+                <div id="entertain" class="entertain" data-2740p="opacity:0;display:none;" data-2760p="opacity:1; display:block;"
+                data-2800p="opacity:1;" data-2820p="opacity:0;">
+                    <div class="in-con">
+                        <div class="row-enter">
+                            <div class="power" id="vis-play"></div>
+                            <div class="vis-con">
+                                <div class="btn-ent ent-del" id="vis-del"></div>
+                                <div class="btn-ent ent-plus" id="vis-plus"></div>
+                            </div>
+                        </div>
+                        <div class="row-enter">
+                            <div class="power" id="max-play"></div>
+                            <div class="max-con">
+                                <div class="btn-ent ent-del" id="max-del"></div>
+                                <div class="btn-ent ent-plus" id="max-plus"></div>
+                                <div class="look"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="toggle-12"></div>
+                </div>
+                    <div class="fluid fl1"data-2820p="display:none; opacity:0;" data-2825p="display:block; opacity:1;"></div>
+                    <div class="fluid fl2"data-2825p="display:none; opacity:0;" data-2830p="display:block; opacity:1;"></div>
+                    <div class="fluid fl3"data-2830p="display:none; opacity:0;" data-2835p="display:block; opacity:1;"></div>
+                    <div class="fluid fl4"data-2835p="display:none; opacity:0;" data-2840p="display:block; opacity:1;"></div>
+                    <div class="fluid fl5"data-2840p="display:none; opacity:0;" data-2845p="display:block; opacity:1;"></div>
+                    <div class="fluid fl6"data-2845p="display:none; opacity:0;" data-2850p="display:block; opacity:1;"></div>
+                    <div class="fluid fl7"data-2850p="display:none; opacity:0;" data-2855p="display:block; opacity:1;"></div>
+                    <div class="fluid fl8"data-2855p="display:none; opacity:0;" data-2860p="display:block; opacity:1;"></div>
+            </div>
+    </section>
+    <section id="smartchoice">
+        <a href="http://truesmart.truecorp.co.th/package/entry/5197" target="_blank" class="section16"></a>
+    </section>
+</div>
+
+</body>
+</html>
